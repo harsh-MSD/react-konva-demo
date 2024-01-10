@@ -7,9 +7,6 @@ const Box = (props) => {
     activeAnnotation,
     setActiveAnnotation,
     isAnnotaionDrawn,
-    handleMouseDown,
-    handleMouseUp,
-    handleMouseMove,
   } = props;
 
   const transformerRef = useRef();
