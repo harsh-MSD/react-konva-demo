@@ -54,7 +54,7 @@ const Cluster = () => {
             x={img.x}
             y={img.y}
           />
-          <Star
+          {/* <Star
             key={img.id}
             id={img.id}
             x={img.x}
@@ -69,7 +69,7 @@ const Cluster = () => {
             scaleY={img.isDragging ? 1.2 : 1}
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
-          />
+          /> */}
           </Group>
         ))}
       </Layer>

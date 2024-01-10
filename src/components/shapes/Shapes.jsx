@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, Fragment } from 'react';
-import { Stage, Layer, Rect, Text, Circle, Line, Transformer, Ellipse } from 'react-konva';
+import { Stage, Layer, Rect, Text, Circle, Line, Transformer, Ellipse, RegularPolygon } from 'react-konva';
 
 const shapes = [
   {
@@ -45,14 +45,6 @@ const Rectangle = ({ shapeProps, isSelected, onSelect, onChange }) => {
   const shapeRef = useRef();
   const trRef = useRef();
 
-  useEffect(() => {
-    if (isSelected) {
-      // we need to attach transformer manually
-      trRef.current.nodes([shapeRef.current]);
-      trRef.current.getLayer().batchDraw();
-    }
-  }, [isSelected]);
-
   return (
     <Fragment>
       <Rect
@@ -84,7 +76,6 @@ const Rectangle = ({ shapeProps, isSelected, onSelect, onChange }) => {
             ...shapeProps,
             x: node.x(),
             y: node.y(),
-            // set minimal value
             width: Math.max(5, node.width() * scaleX),
             height: Math.max(5, node.height() * scaleY),
           });
@@ -93,6 +84,7 @@ const Rectangle = ({ shapeProps, isSelected, onSelect, onChange }) => {
       {isSelected && (
         <Transformer
           ref={trRef}
+          nodes={[shapeRef?.current]}
           flipEnabled={false}
           boundBoxFunc={(oldBox, newBox) => {
             // limit resize
@@ -110,14 +102,6 @@ const Rectangle = ({ shapeProps, isSelected, onSelect, onChange }) => {
 const Circular = ({ shapeProps, isSelected, onSelect, onChange }) => {
   const shapeRef = useRef();
   const trRef = useRef();
-
-  useEffect(() => {
-    if (isSelected) {
-      // we need to attach transformer manually
-      trRef.current.nodes([shapeRef.current]);
-      trRef.current.getLayer().batchDraw();
-    }
-  }, [isSelected]);
 
   return (
     <Fragment>
@@ -151,6 +135,7 @@ const Circular = ({ shapeProps, isSelected, onSelect, onChange }) => {
       {isSelected && (
         <Transformer
           ref={trRef}
+          nodes={[shapeRef?.current]}
           flipEnabled={false}
           boundBoxFunc={(oldBox, newBox) => {
             // limit resize
@@ -174,14 +159,6 @@ const Circular = ({ shapeProps, isSelected, onSelect, onChange }) => {
 const Elliptical = ({ shapeProps, isSelected, onSelect, onChange }) => {
   const shapeRef = useRef();
   const trRef = useRef();
-
-  useEffect(() => {
-    if (isSelected) {
-      // we need to attach transformer manually
-      trRef.current.nodes([shapeRef.current]);
-      trRef.current.getLayer().batchDraw();
-    }
-  }, [isSelected]);
 
   return (
     <Fragment>
@@ -219,6 +196,7 @@ const Elliptical = ({ shapeProps, isSelected, onSelect, onChange }) => {
       {isSelected && (
         <Transformer
           ref={trRef}
+          nodes={[shapeRef?.current]}
           flipEnabled={false}
           boundBoxFunc={(oldBox, newBox) => {
             // limit resize
@@ -236,14 +214,6 @@ const Elliptical = ({ shapeProps, isSelected, onSelect, onChange }) => {
 const Polygon = ({ shapeProps, isSelected, onSelect, onChange }) => {
   const shapeRef = useRef();
   const trRef = useRef();
-
-  useEffect(() => {
-    if (isSelected) {
-      // we need to attach transformer manually
-      trRef.current.nodes([shapeRef.current]);
-      trRef.current.getLayer().batchDraw();
-    }
-  }, [isSelected]);
 
   return (
     <Fragment>
@@ -276,7 +246,6 @@ const Polygon = ({ shapeProps, isSelected, onSelect, onChange }) => {
             ...shapeProps,
             x: node.x(),
             y: node.y(),
-            // set minimal value
             points: [
               node.points()[0] * scaleX,
               node.points()[1] * scaleY,
@@ -292,6 +261,7 @@ const Polygon = ({ shapeProps, isSelected, onSelect, onChange }) => {
       {isSelected && (
         <Transformer
           ref={trRef}
+          nodes={[shapeRef?.current]}
           flipEnabled={false}
           boundBoxFunc={(oldBox, newBox) => {
             // limit resize

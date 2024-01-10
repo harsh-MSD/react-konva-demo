@@ -23,6 +23,8 @@ const ImageCanvas = ({ imageUrl }) => {
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [activeAnnotation, setActiveAnnotation] = useState(null);
 
+  console.log('annotations', annotations)
+
   const canvasRef = useRef();
   const imageRef = useRef();
   const stageRef = useRef();
