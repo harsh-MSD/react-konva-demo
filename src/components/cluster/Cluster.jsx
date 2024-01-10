@@ -48,13 +48,13 @@ const Cluster = () => {
         <Text text="Try to drag images" fontSize={16} />
         {images.map((img) => (
           <Group>
-          <ImgElement
+          {/* <ImgElement
             key={img.id}
             src={img.imgSrc}
             x={img.x}
             y={img.y}
-          />
-          {/* <Star
+          /> */}
+          <Star
             key={img.id}
             id={img.id}
             x={img.x}
@@ -69,7 +69,7 @@ const Cluster = () => {
             scaleY={img.isDragging ? 1.2 : 1}
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
-          /> */}
+          />
           </Group>
         ))}
       </Layer>

@@ -47,14 +47,6 @@ const Polygon = ({ shapeProps, isSelected, onSelect, onChange }) => {
         <Transformer
           ref={trRef}
           nodes={[shapeRef?.current]}
-          flipEnabled={false}
-          boundBoxFunc={(oldBox, newBox) => {
-            // limit resize
-            if (Math.abs(newBox.width) < 5 || Math.abs(newBox.height) < 5) {
-              return oldBox;
-            }
-            return newBox;
-          }}
         />
       )}
     </Fragment>
