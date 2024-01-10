@@ -18,18 +18,6 @@ const Crop = ({ imageUrl }) => {
     }
   };
 
-  const handleTransform = () => {
-    const node = rectRef.current;
-    if (node) {
-      setCrop({
-        x: node.x(),
-        y: node.y(),
-        width: node.width() * node.scaleX(),
-        height: node.height() * node.scaleY(),
-      });
-    }
-  };
-
   const rectRef = React.useRef();
 
   return (
@@ -47,7 +35,6 @@ const Crop = ({ imageUrl }) => {
             strokeWidth={2}
             ref={rectRef}
             onDragEnd={handleDragEnd}
-            onTransform={handleTransform}
           />
           <Text text="Try to drag box on the image" fontSize={16} />
         </Layer>
