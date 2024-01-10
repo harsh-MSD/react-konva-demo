@@ -96,7 +96,7 @@ const ImageCanvas = ({ imageUrl }) => {
       setIsMouseDown(true);
       setActiveAnnotation(null);
       if (newAnnotation?.length === 0) {
-        // Getting relative position of stage, since the stage can be panned or zoomed
+        // Getting relative position of stage, since the stage can be zoomed
         const { x, y } = stageRef.current.getRelativePointerPosition();
           setNewAnnotation([
             {
