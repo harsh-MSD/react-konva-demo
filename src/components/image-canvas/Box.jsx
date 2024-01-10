@@ -58,20 +58,15 @@ const Box = (props) => {
           id={value.id}
           onClick={(e) => shapeOnClick(e, value.id)}
           ref={shapeRef}
-          strokeScaleEnabled={false}
+          // strokeScaleEnabled={false}
           draggable={!!isActive}
-          onMouseDown={isActive ? null : (e) => { handleMouseDown(e, true); }}
-          onMouseUp={handleMouseUp}
-          onMouseMove={handleMouseMove}
         />
       )}
       {(value.id === activeAnnotation && shapeRef?.current) && (
         <Transformer
           ref={transformerRef}
-          flipEnabled={false}
           nodes={[shapeRef?.current]}
           rotateEnabled={false}
-          keepRatio={true}
           anchorStroke={PRIMARY_BLUE}
           anchorFill={PRIMARY_BLUE}
           anchorSize={6}
@@ -82,13 +77,6 @@ const Box = (props) => {
             'bottom-left',
             'bottom-right',
           ]}
-          boundBoxFunc={(oldBox, newBox) => {
-            // limit resize
-            if (Math.abs(newBox.width) < 5 || Math.abs(newBox.height) < 5) {
-              return oldBox;
-            }
-            return newBox;
-          }}
         />
       )}
     </>
