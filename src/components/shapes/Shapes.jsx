@@ -69,14 +69,14 @@ const Shapes = () => {
       <Layer>
         <Text text="Here are some shapes" fontSize={16} />
         <Rectangle
-              shapeProps={rectangle}
-              isSelected={rectangle.id === selectedId}
-              onSelect={() => {
-                selectShape(rectangle.id);
-              }}
-              onChange={(newAttrs) => {
-                setRectangle(newAttrs);
-              }}
+          shapeProps={rectangle}
+          isSelected={rectangle.id === selectedId}
+          onSelect={() => {
+            selectShape(rectangle.id);
+          }}
+          onChange={(newAttrs) => {
+            setRectangle(newAttrs);
+          }}
             />
         <Circular
           shapeProps={circular}

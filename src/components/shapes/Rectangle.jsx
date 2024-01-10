@@ -36,8 +36,8 @@ const Rectangle = ({ shapeProps, isSelected, onSelect, onChange }) => {
             ...shapeProps,
             x: node.x(),
             y: node.y(),
-            width: Math.max(5, node.width() * scaleX),
-            height: Math.max(5, node.height() * scaleY),
+            width: node.width() * scaleX,
+            height: node.height() * scaleY,
           });
         }}
       />

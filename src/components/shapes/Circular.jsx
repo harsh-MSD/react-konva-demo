@@ -30,7 +30,7 @@ const Circular = ({ shapeProps, isSelected, onSelect, onChange }) => {
             ...shapeProps,
             x: node.x(),
             y: node.y(),
-            radius: Math.max(5, node.radius() * scaleX),
+            radius: node.radius() * scaleX,
           });
         }}
       />

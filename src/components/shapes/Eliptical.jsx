@@ -32,8 +32,8 @@ const Elliptical = ({ shapeProps, isSelected, onSelect, onChange }) => {
             x: node.x(),
             y: node.y(),
             radius: {
-              x: Math.max(5, node.radiusX() * scaleX),
-              y: Math.max(5, node.radiusY() * scaleY),
+              x: node.radiusX() * scaleX,
+              y: node.radiusY() * scaleY,
             }
           });
         }}
