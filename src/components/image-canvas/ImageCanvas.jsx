@@ -91,8 +91,8 @@ const ImageCanvas = ({ imageUrl }) => {
     setNewAnnotation([]);
   };
 
-  const handleMouseDown = (e, isDrawingInShape) => {
-    if (e.target === stageRef.current || e.target === imageRef.current || isDrawingInShape) {
+  const handleMouseDown = (e) => {
+    if (e.target === stageRef.current || e.target === imageRef.current) {
       setIsMouseDown(true);
       setActiveAnnotation(null);
       if (newAnnotation?.length === 0) {
