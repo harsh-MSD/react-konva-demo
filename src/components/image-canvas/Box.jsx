@@ -58,7 +58,6 @@ const Box = (props) => {
           id={value.id}
           onClick={(e) => shapeOnClick(e, value.id)}
           ref={shapeRef}
-          // strokeScaleEnabled={false}
           draggable={!!isActive}
         />
       )}
