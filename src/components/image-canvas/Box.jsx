@@ -7,6 +7,9 @@ const Box = (props) => {
     activeAnnotation,
     setActiveAnnotation,
     isAnnotaionDrawn,
+    handleMouseDown,
+    handleMouseUp,
+    handleMouseMove,
   } = props;
 
   const transformerRef = useRef();
@@ -55,14 +58,20 @@ const Box = (props) => {
           id={value.id}
           onClick={(e) => shapeOnClick(e, value.id)}
           ref={shapeRef}
+          strokeScaleEnabled={false}
           draggable={!!isActive}
+          onMouseDown={isActive ? null : (e) => { handleMouseDown(e, true); }}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
         />
       )}
       {(value.id === activeAnnotation && shapeRef?.current) && (
         <Transformer
           ref={transformerRef}
+          flipEnabled={false}
           nodes={[shapeRef?.current]}
           rotateEnabled={false}
+          keepRatio={true}
           anchorStroke={PRIMARY_BLUE}
           anchorFill={PRIMARY_BLUE}
           anchorSize={6}
